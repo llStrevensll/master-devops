@@ -1,0 +1,191 @@
+https://docs.docker.com/engine/reference/commandline/search/
+===========================================
+docker --version
+docker run -p 5000:5000 in28min/hello-world-python:0.0.1.RELEASE
+docker run -p 5000:5000 in28min/hello-world-java:0.0.1.RELEASE
+docker run -p 5000:5000 in28min/hello-world-nodejs:0.0.1.RELEASE
+===========================================
+docker run -d -p 5000:5000 in28min/hello-world-nodejs:0.0.1.RELEASE
+docker run -d -p 5001:5000 in28min/hello-world-python:0.0.1.RELEASE
+
+So this is showing the internal container port
+5000
+
+Well the application is exposed on the host, it's port 
+5001
+
+Detached
+To start a container in detached mode, you use -d=true or just -d
+
+To view logs:
+docker logs <CONTAINER ID>
+==========================================
+docker images
+docker container ls    / docker ps
+docker container ls -a
+docker container stop <CONTAINER ID>
+===========================================
+Docker Client is the client
+and the docker deamon is like a server component
+- docker deamon-> Responsible for execution of that specific command
+
+docker run -d -p 5001:5000 in28min/hello-world-rest-api:0.0.1.RELEASE
+docker logs <CONTAINER ID>
+//Error port - validate port
+docker stop <CONTAINER ID>
+docker run -d -p 5001:8080 in28min/hello-world-rest-api:0.0.1.RELEASE
+
+//Serach image en docker hub
+docker search mysql
+docker pull mysql
+docker image history in28min/hello-world-java:0.0.1.RELEASE
+docker image history <IMAGE ID>
+docker image inspect <IMAGE ID>
+docker image remove mysql
+
+docker image remove <IMAGE ID>
+//Error remove image, because image is beingused by stopped container
+
+docker container rm <CONTAINER ID>
+docker image remove <IMAGE ID>
+=============================================================
+https://stackoverflow.com/questions/51466148/pause-vs-stop-in-docker#:~:text=docker%20pause%20pauses%20(i.e.%2C%20sends,s%5D's%20main%20process.
+
+docker container ls -a
+docker container pause <CONTAINER ID>
+docker container unpause <CONTAINER ID>
+
+docker container stop <CONTAINER ID>
+docker container kill <CONTAINER ID>
+docker container inspect <CONTAINER ID>
+// Remove all stopped containers
+docker container prune
+
+==============================================================
+//info system and stats
+docker system //-> view options
+docker system df  
+
+docker system events  //Use docker run, and see log(docker system events) in other terminal
+
+//Delete all stopped containers and delete all images which don´t have a container associated with them
+docker system prune -a
+
+docker stats
+docker stats <CONTAINER ID>
+
+docker run -p 5000:5000 -d -m 512m in28min/hello-world-nodejs:0.0.1.RELEASE    //Limit 512m
+
+docker stats <CONTAINER ID>
+
+docker container run -p 5000:5000 -d -m 512m --cpu-quota=50000  in28min/hello-world-java:0.0.1.RELEASE
+=============================================================
+
+cd /in28Minutes/git/devops-master-class/projects/hello-world/hello-world-python 
+docker build -t in28min/hello-world-python:0.0.2.RELEASE . 
+docker run -p 5000:5000 -d in28min/hello-world-python:0.0.2.RELEASE
+
+docker images //you can see image python alpine
+
+docker history <IMAGE ID>
+
+---................--------------..................-----------
+POSSIBLE ERROR:
+denied: requested access to the resource is denied
+
+docker login
+docker tag in28min/hello-world-python:0.0.2.RELEASE llstrevensll/hello-world-python:0.0.2.RELEASE
+
+docker push llstrevensll/hello-world-python:0.0.2.RELEASE
+---................--------------..................-----------
+===
+docker build -t llstrevensll/hello-world-nodejs:0.0.2.RELEASE . 
+docker run -d -p 5000:5000 llstrevensll/hello-world-nodejs:0.0.2.RELEASE 
+docker logs -f <CONTAINER ID>
+
+==============
+Improving layer caching
+It's not only faster to build images, but also it will be faster 
+to push the image to Docker Hub
+
+FROM node:8.16.1-alpine
+WORKDIR /app
+COPY package.json /app
+RUN npm install
+EXPOSE 5000
+COPY . /app
+CMD node index.js
+
+--
+FROM python:alpine3.10
+WORKDIR /app 
+COPY requirements.txt /app/requirements.txt
+RUN pip install -r requirements.txt
+EXPOSE 5000
+COPY . /app
+CMD python ./launch.py
+
+=========================================================
+CMD - ENTRYPOINT
+
+docker run -d -p 5000:5001 llstrevensll/hello-world-nodejs:0.0.2.RELEASE ping google.com
+docker logs -f <CONTAINER ID>
+
+What happens with CMD, is these parameters will be replaced by whatever you are passing in here
+
+CMD node index.js
+that would be replaced by being ping google.com
+
+However ENTRYPOINT 
+does not worry about command line arguments
+
+
+ENTRYPOINT ["python", "./launch.py"]
+--entrypoint
+
+===================================
+MICROSERVICES
+Because these microservices are very smallThe number of deployments increase exponentially
+-Docker
+
+docker run -d -p 8089:8000 --name=currency-exchange in28min/currency-exchange:0.0.1-RELEASE
+docker run -d -p 8000:8000 --name=currency-exchange in28min/currency-exchange:0.0.1-RELEASE
+
+docker run -d -p 8100:8100 --name=currency-conversion in28min/currency-conversion:0.0.1-RELEASE 
+
+
+docker network ls
+docker network inspect bridge
+//You'd see that there are two containers which are part of the bridge network
+//So you can see that the currency conversion and the currency exchange are part of this specific bridge
+
+
+docker run -d -p 8100:8100 --env CURRENCY_EXCHANGE_SERVICE_HOST=http://currency-exchange --name=currency-conversion --link currency-exchange in28min/currency-conversion:0.0.1-RELEASE
+
+Other options:
+docker network ls
+none - can not be used for connect microservices
+host
+
+The host networking driver only works on Linux hosts, and is not supported on Docker Desktop for Mac, Docker Desktop for Windows, or Docker EE for Windows Server.
+https://docs.docker.com/network/host/
+
+Create a custom network:
+docker network create currency-network
+
+docker stop currency-exchange
+docker stop currency-conversion
+
+docker rm currency-exchange
+docker rm currency-conversion
+
+docker run -d -p 8000:8000 --name=currency-exchange --network=currency-network in28min/currency-exchange:0.0.1-RELEASE
+docker run -d -p 8100:8100 --env CURRENCY_EXCHANGE_SERVICE_HOST=http://currency-exchange --name=currency-conversion --network=currency-network in28min/currency-conversion:0.0.1-RELEASE
+docker logs
+-----------
+Create docker compose yaml
+docker-compose up
+
+docker-compose up -d
+docker ps
+docker network ls
