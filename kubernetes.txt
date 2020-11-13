@@ -66,3 +66,15 @@ A pod can actually contain multiple containers. All the containers which are pre
 kubectl explain pods
 kubectl get pods
 kubectl describe pods hello-world-rest-api-f5c8584d4-b449r
+
+----------------------
+kubectl get rs
+Replicasets ensure that a specific number of pods are running at all times.
+
+kubectl delete pods hello-world-rest-api-f5c8584d4-b449r
+
+kubectl scale deployment hello-world-rest-api --replicas=3
+kubectl get rs
+kubectl get events
+kubectl get events --sort-by=.metadata.creationTimestamp
+kubectl explain replicaset
