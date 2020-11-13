@@ -1,0 +1,59 @@
+
+----
+Cloud
+Virtual Servers:
+
+AWS -ec2
+Azure - virtual machines
+GCP - compute engines
+
+kubernetes - nodes
+
+Cluster:
+Master Node (Manages Cluster)
+Worker Node (Run your Applications)
+-----------------------------------
+-----------------------------------
+Kubernetes Engine - gcp
+
+Clusters:
+where you can create clusters and manage them
+
+Workloads:
+where you can manage the applications or the containers that you would want to deploy into the cluster
+
+Services & Ingress
+Services give external world access to applications which are deployed into Kubernetes clusters
+
+Configuration
+to store your application configuration, 
+
+Storage 
+to provide persistent data storage for your application
+
+
+---
+You will need to choose the type of nodes you want, the number of node you want, and their location
+
+--------------------
+Command line to cloud shell
+Connect cluster
+gcloud container clusters get-credentials <cluster_name> --zone us-central1-a --project <project_ID>
+
+Create deployment
+kubectl create deployment hello-world-rest-api --image=in28min/hello-world
+-rest-api:0.0.1.RELEASE
+
+Expose a service to the outside world
+kubectl expose deployment hello-world-rest-api --type=LoadBalancer --port=
+8080
+
+Now go to Services & Ingress
+
+----------------------
+kubectl get events
+kubectl get replicaset
+kubectl get deployment
+
+kubectl create deployment - create a deployment, replicaset and pod
+kubectl expose deployment - create a service
