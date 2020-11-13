@@ -52,8 +52,17 @@ Now go to Services & Ingress
 
 ----------------------
 kubectl get events
-kubectl get replicaset
+kubectl get replicaset  =  kubectl get rs
 kubectl get deployment
 
 kubectl create deployment - create a deployment, replicaset and pod
 kubectl expose deployment - create a service
+
+----------------------
+kubectl get pods -o wide
+Each pod has a unique IP address
+A pod can actually contain multiple containers. All the containers which are present in a pod share resources. Within the same pod, the containers can talk to each other using localhost
+
+kubectl explain pods
+kubectl get pods
+kubectl describe pods hello-world-rest-api-f5c8584d4-b449r
