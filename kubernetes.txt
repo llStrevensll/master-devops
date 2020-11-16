@@ -78,3 +78,46 @@ kubectl get rs
 kubectl get events
 kubectl get events --sort-by=.metadata.creationTimestamp
 kubectl explain replicaset
+-----------------------
+kubectl get rs -o wide
+
+//set image deployment <name-deployment> <container=image:tag>
+kubectl set image deployment hello-world-rest-api hello-world-rest-api=DUMMY_IMAGE:TEST
+kubectl get rs -o wide
+kubectl get pods
+OUTPUT:
+   	status InvalidImageName
+
+kubectl describe pod hello-world-rest-api-7567bd47b5-vh99w
+OUTPUT: 
+	Failed to apply default image tag "DUMMY_IMAGE:TEST": couldn't parse image reference 	"DUMMY_IMAGE:TEST": invalid reference format: repository name must be lowercase
+
+kubectl get events --sort-by=.metadata.creationTimestamp
+
+----
+kubectl set image deployment hello-world-rest-api hello-world-rest-api=in28min/hello-world-rest-api:0.0.2.RELEASE}
+kubectl get pods
+kubectl get events --sort-by=.metadata.creationTimestamp
+
+//strategy by default, is something called rolling updates
+----
+LoadBalancer
+kubectl get services
+
+ClusterIP service
+Can only be accessed from inside the cluster
+
+=================================
+Master node
+1. etcd - Distribute Database
+2. API server, kube-apiserver
+3. Scheduler
+4. Controller Manager
+
+Worker node
+1. Node Agent - kubelet
+2. Networking Component  kube-proxy
+3. Container Runtime - CRI (docker)
+4. PODS (Multiple pods running containers)
+
+kubectl get componentstatuses
