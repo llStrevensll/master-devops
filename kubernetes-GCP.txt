@@ -141,3 +141,16 @@ kubectl rollout history deployment hello-world-rest-api
 
 <pod>
 kubectl logs hello-world-rest-api-f5c8584d4-8rm86
+
+
+==========================
+YML
+kubectl get deployment 
+kubectl get deployment <name_deployment>
+kubectl get deployment hello-world-rest-api -o yaml
+kubectl get deployment hello-world-rest-api -o yaml > deployment.yaml
+
+kubectl get service hello-world-rest-api -o yaml > service.yaml
+
+kubectl apply -f deployment.yaml
+kubectl get pods
