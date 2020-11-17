@@ -95,7 +95,7 @@ OUTPUT:
 kubectl get events --sort-by=.metadata.creationTimestamp
 
 ----
-kubectl set image deployment hello-world-rest-api hello-world-rest-api=in28min/hello-world-rest-api:0.0.2.RELEASE}
+kubectl set image deployment hello-world-rest-api hello-world-rest-api=in28min/hello-world-rest-api:0.0.2.RELEASE
 kubectl get pods
 kubectl get events --sort-by=.metadata.creationTimestamp
 
@@ -121,3 +121,23 @@ Worker node
 4. PODS (Multiple pods running containers)
 
 kubectl get componentstatuses
+===================================================================================
+gcloud
+https://cloud.google.com/sdk/docs/install
+gcloud auth login
+
+Rollouts
+kubectl rollout history deployment hello-world-rest-api
+OUTPUT:
+	change-cause <none>
+
+kubectl set image deployment hello-world-rest-api hello-world-rest-api=in28min/hello-world-rest-api:0.0.3.RELEASE --record=true
+
+kubectl rollout history deployment hello-world-rest-api
+curl http://35.224.117.182:8080/hello-world
+
+kubectl rollout undo deployment hello-world-rest-api --to-revision=1
+kubectl rollout history deployment hello-world-rest-api
+
+<pod>
+kubectl logs hello-world-rest-api-f5c8584d4-8rm86
