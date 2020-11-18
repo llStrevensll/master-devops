@@ -154,3 +154,47 @@ kubectl get service hello-world-rest-api -o yaml > service.yaml
 
 kubectl apply -f deployment.yaml
 kubectl get pods
+
+kubectl get all -o wide
+kubectl delete all -l app=hello-world-rest-api
+
+-------
+kubectl apply -f deployment-complete.yaml
+kubectl get all
+kubectl get svc --watch
+curl http://35.224.117.182:8080/hello-world
+watch curl http://35.224.117.182:8080/hello-world
+
+//edit file yaml - number of replicas
+kubectl diff -f deployment-complete.yaml
+kubectl apply -f deployment-complete.yaml
+
+----
+File yaml
+minReadySeconds: 45
+
+So we are saying give the container the 45 seconds to get ready, and only then send the request out.
+
+
+kubectl get pods --all-namespaces
+kubectl get pods --all-namespaces -l app=hello-world-rest-api
+
+kubectl get services --all-namespaces
+kubectl get services --all-namespaces --sort-by=.spec.type
+kubectl get services --all-namespaces --sort-by=.metadata.name
+kubectl cluster-info
+kubectl cluster-info dump
+kubectl top node
+kubectl top pod
+kubectl get services
+kubectl get svc
+kubectl get ev
+kubectl get rs
+kubectl get ns
+kubectl get nodes
+kubectl get no
+kubectl get pods
+kubectl get po
+
+kubectl delete all -l app=hello-world-rest-api
+kubectl get all
