@@ -198,3 +198,31 @@ kubectl get po
 
 kubectl delete all -l app=hello-world-rest-api
 kubectl get all
+=======================================
+microservices
+kubectl version
+
+01-currency-exchange-microservice-basic
+02-currency-conversion-microservice-basic
+//update apiVersion in file yaml - apps/v1
+
+kubectl apply -f deployment.yaml
+kubectl get svc --watch
+
+http://34.72.20.64:8000/currency-exchange/from/EUR/to/INR
+http://35.184.167.236:8100/currency-conversion/from/EUR/to/INR/quantity/10
+
+
+kubectl apply -f 00-configmap-currency-conversion.yaml
+kubectl get configmap
+kubectl describe configmap
+
+-----
+Change Service to NodePort
+kubectl apply -f deployment.yaml
+kubectl apply -f ingress.yaml
+
+kubectl get ingress
+
+Witout port
+http://34.98.69.73/currency-exchange/from/EUR/to/INR
