@@ -1,0 +1,7 @@
+brew install terraform
+choco install terraform
+terraform --version
+terraform version
+terraform init
+export AWS_ACCESS_KEY_ID=*******
+export AWS_SECRET_ACCESS_KEY=*********
