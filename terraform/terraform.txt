@@ -22,3 +22,10 @@ terraform console
     aws_s3_bucket.my_s3_bucket.versioning[0].enabled
 
 terraform apply -refresh=false
+terraform console
+  value = aws_iam_user.my_iam_user
+
+
+
+terraform plan -out iam.tfplan
+terraform apply "iam.tfplan"
