@@ -29,3 +29,7 @@ terraform console
 
 terraform plan -out iam.tfplan
 terraform apply "iam.tfplan"
+
+
+terraform apply -target=aws_iam_user.my_iam_user
+//use .gitignore for file tfstate 
