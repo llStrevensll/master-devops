@@ -33,3 +33,23 @@ terraform apply "iam.tfplan"
 
 terraform apply -target=aws_iam_user.my_iam_user
 //use .gitignore for file tfstate 
+
+
+Create file outputs
+terraform plan -refresh=false
+
+terraform plan -refresh=falseorm destroy
+
+#STATE
+#DESIRED - KNOW - ACTUAL
+Desired:
+the desired state, which is actually defined in the terraform 
+configuration files.
+
+Know:
+The known state - which is present in the tfstate files
+
+Actual:
+And the actual state which is actually the state of
+a specific resource on the cloud, on AWS.
+
