@@ -58,3 +58,17 @@ a specific resource on the cloud, on AWS.
 aws_iam_user
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user
 
+----
+terraform console
+aws_iam_user.my_iam_users
+aws_iam_user.my_iam_users[0].arn
+aws_iam_user.my_iam_users[2].arn
+aws_iam_user.my_iam_users[2].name
+aws_iam_user.my_iam_users[2].path
+
+terraform validate
+terraform fmt
+terraform show
+https://www.terraform.io/docs/commands/apply.html
+
+
