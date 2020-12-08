@@ -53,3 +53,8 @@ Actual:
 And the actual state which is actually the state of
 a specific resource on the cloud, on AWS.
 
+
+-----------------------------------------
+aws_iam_user
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user
+
