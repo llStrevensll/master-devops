@@ -72,3 +72,21 @@ terraform show
 https://www.terraform.io/docs/commands/apply.html
 
 
+----
+terraform console
+var.iam_user_name_prefix
+
+terraform validate //validate type in variable
+
+terraform apply --refresh=false
+
+
+export TF_VAR_iam_user_name_prefix=FROM_ENV_VARIABLE_IAM_PREFIX
+$Env:TF_VAR_iam_user_name_prefix='FROM_ENV_VARIABLE_IAM_PREFIX'
+
+terraform plan --refresh=false
+terraform plan -refresh=false -var="iam_user_name_prefix=VALUE_FROM_COMMAND_LINE"
+
+terraform apply -var-file="some-name.tfvars"
+
+
