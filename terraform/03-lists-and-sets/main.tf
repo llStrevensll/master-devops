@@ -1,5 +1,5 @@
 variable "names" {
-    default = ["strevens1", "steven", "angel"]
+    default = ["final", "test-new", "strevens1", "steven", "angel"]
 }
 
 provider "aws" {
@@ -7,8 +7,10 @@ provider "aws" {
   version = "~> 3.18.0"
 }
 
-//Multiple users
+
 resource "aws_iam_user" "my_iam_users" {
-  count = length(var.names)
-  name  = var.names[count.index]
+  #count = length(var.names)
+  #name  = var.names[count.index]
+  for_each = toset(var.names)
+  name = each.value
 }
