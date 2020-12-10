@@ -89,4 +89,23 @@ terraform plan -refresh=false -var="iam_user_name_prefix=VALUE_FROM_COMMAND_LINE
 
 terraform apply -var-file="some-name.tfvars"
 
+------------------
+list-and-sets
+
+terraform console
+var.names
+var.names[0]
+length(var.names)
+reverse(var.names)
+distinct(var.names)
+toset(var.names)
+concat(var.names, ["new item"])
+contains(var.names, "steven")
+sort(var.names)
+range(10)
+range(1,12)
+range(1,12.2)
+range(1,12.3)
+https://www.terraform.io/docs/configuration/functions.html
+https://www.terraform.io/docs/configuration/functions/list.html
 
