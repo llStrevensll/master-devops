@@ -109,3 +109,18 @@ range(1,12.3)
 https://www.terraform.io/docs/configuration/functions.html
 https://www.terraform.io/docs/configuration/functions/list.html
 
+
+
+========
+04-maps
+
+terraform console
+var.names
+var.names.angel
+keys(var.names)
+values(var.names)
+lookup(var.names, "angel")
+lookup(var.names, "test", "default")
+
+//edit to map of maps
+

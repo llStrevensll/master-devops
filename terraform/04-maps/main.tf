@@ -1,9 +1,9 @@
-variable "names" {
-    default = {
-        emanuel:"Colombia", 
-        steven:"Canada", 
-        angel:"Australia"
-    }
+variable "users" {
+  default = {
+    emanuel : { country : "Colombia", city : "Bogota" },
+    steven : { country : "Canada", city : "Edmonton" },
+    angel : { country : "Australia", city : "Sidney" }
+  }
 }
 
 provider "aws" {
@@ -13,8 +13,11 @@ provider "aws" {
 
 
 resource "aws_iam_user" "my_iam_users" {
-  #count = length(var.names)
-  #name  = var.names[count.index]
-  for_each = toset(var.names)
-  name = each.value
+  for_each = var.users
+  name     = each.key //key is name
+  tags = {
+    #country: each.value //value is country
+    country : each.value.country
+    city : each.value.city
+  }
 }
