@@ -124,3 +124,7 @@ lookup(var.names, "test", "default")
 
 //edit to map of maps
 
+---
+terraform FAQ
+https://www.terraform.io/docs/state/purpose.html
+
