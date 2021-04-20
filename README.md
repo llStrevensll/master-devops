@@ -96,7 +96,7 @@ Project Link: [https://github.com/llStrevensll/Proyecto-P-Reference](https://git
 
 Project Link: [https://github.com/llStrevensll/SistemaVentas----Java](https://github.com/llStrevensll/SistemaVentas----Java)
 
-**Typescript - Angular**
+* **Typescript - Angular**
 
 Project Link: [https://github.com/llStrevensll/FrontEnd-Angular-Java](https://github.com/llStrevensll/ControlClientes-Angular)
 
@@ -104,7 +104,7 @@ Project Link: [https://github.com/llStrevensll/-SpotiApp--Angular](https://githu
 
 Project Link: [https://github.com/llStrevensll/Lista-Deseos---Ionic](https://github.com/llStrevensll/Lista-Deseos---Ionic)
 
-**Typescript - Nodejs**
+* **Typescript - Nodejs**
 
 Project Link: [https://github.com/llStrevensll/DevJob---Node](https://github.com/llStrevensll/DevJob---Node)
 
@@ -113,7 +113,7 @@ Project Link: [https://github.com/llStrevensll/Mongo-Express-Angular-Nodejs](htt
 Project Link: [https://github.com/llStrevensll/ProjectTask---Node](https://github.com/llStrevensll/ProjectTask---Node)
 
 
-**.Net**
+* **.Net**
 
 Project Link: [https://github.com/llStrevensll/ASP.NET-MVC-Entity-Framework-C-](https://github.com/llStrevensll/ASP.NET-MVC-Entity-Framework-C-)
 
@@ -122,19 +122,19 @@ Project Link: [https://github.com/llStrevensll/ArquitecturaCapas---ASP.NET-MVC](
 Project Link: [https://github.com/llStrevensll/azure-devops](https://github.com/llStrevensll/azure-devops)
 
 
-**Python**
+* **Python**
 https://github.com/llStrevensll/PythonBasico
 Project Link: [https://github.com/llStrevensll/ProjectTask---Node](https://github.com/llStrevensll/Python)
 
-**Bash Shell**
+* **Bash Shell**
 
 Project Link: [https://github.com/llStrevensll/BashShell](https://github.com/llStrevensll/BashShell)
 
-**Groovy**
+* **Groovy**
 
 **
 
-**Linux devops**
+* **Linux devops**
 
 **
 
