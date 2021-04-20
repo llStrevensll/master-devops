@@ -103,7 +103,6 @@ Project Link: [https://github.com/llStrevensll/GestionPeliculas---Framework-Spri
 
 Project Link: [https://github.com/llStrevensll/sga--JavaEE](https://github.com/llStrevensll/sga--JavaEE)
 
-Project Link: [https://github.com/llStrevensll/sga--JavaEE](https://github.com/llStrevensll/sga--JavaEE)
 
 Project Link: [https://github.com/llStrevensll/Proyecto-P-Reference](https://github.com/llStrevensll/Proyecto-P-Reference)
 
@@ -113,6 +112,8 @@ Project Link: [https://github.com/llStrevensll/SistemaVentas----Java](https://gi
 * **Typescript - Angular**
 
 Project Link: [https://github.com/llStrevensll/FrontEnd-Angular-Java](https://github.com/llStrevensll/ControlClientes-Angular)
+
+Project Link: [https://github.com/llStrevensll/FrontAngular-SistemaAcademico](https://github.com/llStrevensll/FrontAngular-SistemaAcademico)
 
 Project Link: [https://github.com/llStrevensll/-SpotiApp--Angular](https://github.com/llStrevensll/-SpotiApp--Angular)
 
