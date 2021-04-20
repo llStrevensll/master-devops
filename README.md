@@ -138,7 +138,7 @@ Project Link: [https://github.com/llStrevensll/azure-devops](https://github.com/
 
 ### Python
 * **Python**
-https://github.com/llStrevensll/PythonBasico
+
 Project Link: [https://github.com/llStrevensll/ProjectTask---Node](https://github.com/llStrevensll/Python)
 
 ### Bash_Shell
