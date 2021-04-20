@@ -16,7 +16,19 @@ More information about devops
     <li><a href="#git">GIT</a></li>
     <li><a href="#jenkis">JENKINS</a></li>
     <li><a href="#nexus-jfrog">NEXUS-JFROG</a></li>
-    <li><a href="#projects">PROJECTS - programming languages and more</a></li>
+    <li>
+        <a href="#projects">PROJECTS - programming languages and more</a>
+        <ul>
+            <li><a href="#java">Java</a></li>
+            <li><a href="#Typescript_Angular">Typescript - Angular</a></li>
+            <li><a href="#Typescript_Nodejs">Typescript -Nodejs</a></li>
+            <li><a href="#.Net">.Net</a></li>
+            <li><a href="#Python">Python</a></li>
+            <li><a href="#Bash_Shell">Bash_Shell</a></li>
+            <li><a href="#Groovy">Groovy</a></li>
+            <li><a href="#Linux_devops">Linux devops</a></li>
+         </ul>
+    </li>
   </ol>
 </details>
 
@@ -78,6 +90,7 @@ Project Link: [https://github.com/llStrevensll/docker-jenkins-integration-sample
 
 ## PROJECTS
 
+### Java
 * **Java**
 
 Project Link: [https://github.com/llStrevensll/SpringBoot-Mysql](https://github.com/llStrevensll/SpringBoot-Mysql)
@@ -96,6 +109,7 @@ Project Link: [https://github.com/llStrevensll/Proyecto-P-Reference](https://git
 
 Project Link: [https://github.com/llStrevensll/SistemaVentas----Java](https://github.com/llStrevensll/SistemaVentas----Java)
 
+### Typescript_Angular
 * **Typescript - Angular**
 
 Project Link: [https://github.com/llStrevensll/FrontEnd-Angular-Java](https://github.com/llStrevensll/ControlClientes-Angular)
@@ -104,6 +118,7 @@ Project Link: [https://github.com/llStrevensll/-SpotiApp--Angular](https://githu
 
 Project Link: [https://github.com/llStrevensll/Lista-Deseos---Ionic](https://github.com/llStrevensll/Lista-Deseos---Ionic)
 
+### Typescript_Nodejs
 * **Typescript - Nodejs**
 
 Project Link: [https://github.com/llStrevensll/DevJob---Node](https://github.com/llStrevensll/DevJob---Node)
@@ -112,7 +127,7 @@ Project Link: [https://github.com/llStrevensll/Mongo-Express-Angular-Nodejs](htt
 
 Project Link: [https://github.com/llStrevensll/ProjectTask---Node](https://github.com/llStrevensll/ProjectTask---Node)
 
-
+### .Net
 * **.Net**
 
 Project Link: [https://github.com/llStrevensll/ASP.NET-MVC-Entity-Framework-C-](https://github.com/llStrevensll/ASP.NET-MVC-Entity-Framework-C-)
@@ -121,19 +136,22 @@ Project Link: [https://github.com/llStrevensll/ArquitecturaCapas---ASP.NET-MVC](
 
 Project Link: [https://github.com/llStrevensll/azure-devops](https://github.com/llStrevensll/azure-devops)
 
-
+### Python
 * **Python**
 https://github.com/llStrevensll/PythonBasico
 Project Link: [https://github.com/llStrevensll/ProjectTask---Node](https://github.com/llStrevensll/Python)
 
+### Bash_Shell
 * **Bash Shell**
 
 Project Link: [https://github.com/llStrevensll/BashShell](https://github.com/llStrevensll/BashShell)
 
+### Groovy
 * **Groovy**
 
 **
 
+### Linux_devops
 * **Linux devops**
 
 **
