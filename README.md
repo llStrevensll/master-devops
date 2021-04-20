@@ -78,7 +78,7 @@ Project Link: [https://github.com/llStrevensll/docker-jenkins-integration-sample
 
 ## PROJECTS
 
-**Java**
+* **Java**
 
 Project Link: [https://github.com/llStrevensll/SpringBoot-Mysql](https://github.com/llStrevensll/SpringBoot-Mysql)
 
