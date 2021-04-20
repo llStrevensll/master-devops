@@ -14,7 +14,7 @@ More information about devops
     <li><a href="#kubernetes">KUBERNETES</a></li>
     <li><a href="#docker">DOCKER</a></li>
     <li><a href="#git">GIT</a></li>
-    <li><a href="#jenkis">JENKINS</a></li>
+    <li><a href="#jenkins">JENKINS</a></li>
     <li><a href="#nexus-jfrog">NEXUS-JFROG</a></li>
     <li>
         <a href="#projects">PROJECTS - programming languages and more</a>
@@ -22,7 +22,7 @@ More information about devops
             <li><a href="#java">Java</a></li>
             <li><a href="#Typescript_Angular">Typescript - Angular</a></li>
             <li><a href="#Typescript_Nodejs">Typescript -Nodejs</a></li>
-            <li><a href="#.Net">.Net</a></li>
+            <li><a href="#_Net">.Net</a></li>
             <li><a href="#Python">Python</a></li>
             <li><a href="#Bash_Shell">Bash_Shell</a></li>
             <li><a href="#Groovy">Groovy</a></li>
@@ -128,7 +128,7 @@ Project Link: [https://github.com/llStrevensll/Mongo-Express-Angular-Nodejs](htt
 
 Project Link: [https://github.com/llStrevensll/ProjectTask---Node](https://github.com/llStrevensll/ProjectTask---Node)
 
-### .Net
+### _Net
 * **.Net**
 
 Project Link: [https://github.com/llStrevensll/ASP.NET-MVC-Entity-Framework-C-](https://github.com/llStrevensll/ASP.NET-MVC-Entity-Framework-C-)
