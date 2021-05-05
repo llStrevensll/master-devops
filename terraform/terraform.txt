@@ -34,7 +34,9 @@ terraform apply "iam.tfplan"
 terraform apply -target=aws_iam_user.my_iam_user
 //use .gitignore for file tfstate 
 
-
+====
+Outputs: https://www.terraform.io/docs/language/values/outputs.html
+====
 Create file outputs
 terraform plan -refresh=false
 
