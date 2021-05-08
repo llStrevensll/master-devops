@@ -13,7 +13,7 @@ variable "iam_user_name_prefix" {
 }
 
 provider "aws" {
-  region  = "us-east-1"
+  region = "us-east-1"
 }
 
 //Multiple users

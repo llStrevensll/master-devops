@@ -111,7 +111,8 @@ range(1,12.3)
 https://www.terraform.io/docs/configuration/functions.html
 https://www.terraform.io/docs/configuration/functions/list.html
 
-
+terraform.tfstate
+   "index_key"
 
 ========
 04-maps
@@ -130,3 +131,15 @@ lookup(var.names, "test", "default")
 terraform FAQ
 https://www.terraform.io/docs/state/purpose.html
 
+
+====
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group
+Security Group
+terraform apply
+Inbound rules (1)
+Type  Protocol   Port range   Source Description - optional
+HTTP	TCP	        80	            0.0.0.0/0
+
+Outbound rules (1)
+Type  Protocol   Port range  Destination  Description - optional
+All    traffic	     All	     All	       0.0.0.0/0

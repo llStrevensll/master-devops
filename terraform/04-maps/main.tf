@@ -1,14 +1,23 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
+}
+
+
 variable "users" {
   default = {
-    emanuel : { country : "Colombia", city : "Bogota" },
-    steven : { country : "Canada", city : "Edmonton" },
-    angel : { country : "Australia", city : "Sidney" }
+    emanuelll : { country : "Colombia", city : "Bogota" },
+    stevennn : { country : "Canada", city : "Edmonton" },
+    angelll : { country : "Australia", city : "Sidney" }
   }
 }
 
 provider "aws" {
-  region  = "us-east-1"
-  version = "~> 3.18.0"
+  region = "us-east-1"
 }
 
 
