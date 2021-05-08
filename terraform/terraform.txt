@@ -143,3 +143,8 @@ HTTP	TCP	        80	            0.0.0.0/0
 Outbound rules (1)
 Type  Protocol   Port range  Destination  Description - optional
 All    traffic	     All	     All	       0.0.0.0/0
+
+---
+ec2 instance
+  network & security
+    Key Pairs

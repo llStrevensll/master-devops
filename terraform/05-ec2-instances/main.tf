@@ -31,7 +31,15 @@ resource "aws_security_group" "http_server_sg" {
   }
 
   tags = {
-      name = "http_server_sg"
+    name = "http_server_sg"
   }
 
+}
+
+resource "aws_instance" "http_server" {
+  ami                    = "ami-0d5eff06f840b45e9"
+  key_name               = "default-ec2"
+  instance_type          = "t2.micro"
+  vpc_security_group_ids = [aws_security_group.http_server_sg.id]
+  subnet_id              = "subnet-246ee869"
 }
