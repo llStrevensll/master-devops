@@ -7,17 +7,17 @@ terraform {
   }
 }
 
-variable "aws_key_pair" {
-  default = "~/.aws/aws_keys/default-ec2.pem"
-}
-
 provider "aws" {
   region = "us-east-1"
 }
 
+resource "aws_default_vpc" "default" {
+
+}
+
 resource "aws_security_group" "http_server_sg" {
   name   = "http_server_sg"
-  vpc_id = "vpc-815755fb"
+  vpc_id = aws_default_vpc.default.id
 
   ingress {
     from_port   = 80
@@ -48,13 +48,13 @@ resource "aws_security_group" "http_server_sg" {
 }
 
 resource "aws_instance" "http_server" {
-  ami                    = "ami-0d5eff06f840b45e9"
+  ami                    = data.aws_ami.aws_linux_2_latest.id
   key_name               = "default-ec2"
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.http_server_sg.id]
-  subnet_id              = "subnet-246ee869"
+  subnet_id              = tolist(data.aws_subnet_ids.default_subnets.ids)[0]
 
-  
+
   connection {
     type        = "ssh"
     host        = self.public_ip
@@ -62,7 +62,7 @@ resource "aws_instance" "http_server" {
     private_key = file(var.aws_key_pair)
   }
 
-  
+
   provisioner "remote-exec" {
     inline = [
       "sudo yum install httpd -y",
