@@ -174,3 +174,10 @@ terraform console
 
 terraform graph
 https://dreampuf.github.io/GraphvizOnline/
+
+---
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html
+---
+
+key = "app-env-prj"
