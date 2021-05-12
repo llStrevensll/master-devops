@@ -181,3 +181,13 @@ https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html
 ---
 
 key = "app-env-prj"
+--
+terraform init
+======
+Workspace
+https://www.terraform.io/docs/language/state/workspaces.html
+terraform workspace show
+
+terraform workspace select default
+
+terraform workspace list
