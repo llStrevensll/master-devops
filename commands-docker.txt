@@ -2,6 +2,28 @@ https://docs.docker.com/engine/reference/commandline/search/
 
 nginx
 https://github.com/nginxinc/docker-nginx/blob/master/Dockerfile-debian.template
+
+FROM centos:7
+RUN yum -y update && \
+    yum -y install httpd && \
+    yum clean all
+
+WORKDIR /home/app
+COPY ./run.sh /home/app/
+
+RUN chmod +x /home/app/run.sh
+ENTRYPOINT ["/home/app/run.sh"]
+
+https://devopscube.com/run-scripts-docker-arguments/
+FROM centos:7
+MAINTAINER Devopscube
+RUN yum -y update && \
+    yum -y install httpd && \
+    yum clean all
+COPY ./script.sh /
+RUN chmod +x /script.sh
+ENTRYPOINT ["/script.sh"]
+CMD ["true", "batman", "superman"]
 ===========================================
 docker --version
 docker run -p 5000:5000 in28min/hello-world-python:0.0.1.RELEASE
