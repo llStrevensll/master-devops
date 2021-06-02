@@ -214,3 +214,9 @@ docker-compose up
 docker-compose up -d
 docker ps
 docker network ls
+
+-----
+https://docs.docker.com/engine/reference/commandline/exec/#:~:text=The%20docker%20exec%20command%20runs,default%20directory%20of%20the%20container.
+docker exec -it <mycontainer> bash
+docker exec -it 5c7abd318d97 bash
+
