@@ -1,0 +1,57 @@
+https://kubernetes.io/docs/concepts/workloads/controllers/_print/
+
+strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+
+Deployment ensures that only a certain number of Pods are down while they are being 
+updated. By default, it ensures that at least 75% of the desired number of Pods are up 
+(25% max unavailable).
+
+Deployment also ensures that only a certain number of Pods are created above the 
+desired number of Pods.
+ By default, it ensures that at most 125% of the desired number of Pods are up (25% max surge).
+
+------
+El mebibyte (símbolo MiB)
+512MiB   =  536.871MB
+
+https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/_print/
+Now if a Container is created in the default-mem-example namespace, and the Container does not specify its own values for memory request and memory limit, the Container is given 
+a default memory request of 256 MiB and a default memory limit of 512 MiB.
+
+
+------
+readinessProbe
+Sometimes, applications are temporarily unable to serve traffic. For example, an application might need to load large data or configuration 
+files during startup, or depend on external services after startup. In such cases, you don't want to kill the application, but you don't want to send it requests either. 
+Kubernetes provides readiness probes to detect and mitigate these situations.
+A pod with containers reporting that they are not ready does not receive traffic through Kubernetes Services.
+
+        readinessProbe:
+          httpGet:
+            path: /
+            port: liveness-port
+          failureThreshold: 5
+          periodSeconds: 10
+          initialDelaySeconds: 60
+
+livenessProbe
+This page shows how to configure liveness, readiness and startup probes for containers.
+
+The kubelet uses liveness probes to know when to restart a container. 
+For example, liveness probes could catch a deadlock, where an application is running, 
+but unable to make progress. Restarting a container in such a state can help to make the application more available despite bugs.
+
+https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
+
+
+Azure DevOps
+Terraform 1 (https://marketplace.visualstudio.com/items?itemName=ms-devlabs.custom-terraform-tasks)
+Terraform 2 (https://marketplace.visualstudio.com/items?itemName=charleszipp.azure-pipelines-tasks-terraform)
+Aws (https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-vsts-tools)
+
+project settings
+  create service connection
+     AWS for Terraform
