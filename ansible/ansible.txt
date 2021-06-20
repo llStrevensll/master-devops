@@ -106,3 +106,8 @@ Install Boto3
 https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html
 pip install boto3
 import boto3
+
+sudo ansible-inventory --list
+sudo ansible-inventory --graph
+
+sudo ansible-playbook playbooks/09-create-ec2.yml
