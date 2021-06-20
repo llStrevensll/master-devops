@@ -1,0 +1,108 @@
+Ansible info
+Ubuntu 20.0
+
+Install Python
+https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-programming-environment-on-an-ubuntu-20-04-server
+sudo apt update
+sudo apt -y upgrade
+
+python3 -V
+
+
+
+Install pip
+
+sudo apt install -y python3-pip
+pip3 install package_name
+sudo apt install -y build-essential libssl-dev libffi-dev python3-dev
+
+
+
+Install ansible
+https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-specific-operating-systems
+
+python -m pip install --user ansible
+python -m pip install --user paramiko
+
+sudo apt update
+sudo apt install software-properties-common
+sudo add-apt-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible
+
+ansible --version
+
+https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-20-04-es
+
+
+------
+/etc/ansible
+File by default
+------
+ansible --list-hosts all 
+sudo ansible -m ping all
+
+//user
+sudo ansible all -a "whoami"
+
+sudo ssh -vvv -i /home/strevens/.aws/aws_keys/default-ec2.pem ec2-user@34.228.79.57
+
+//operating system
+sudo ansible all -a "uname"
+
+sudo ansible all -a "uname -a"
+
+sudo ansible all -a "pwd"
+
+sudo ansible all -a "python --version"
+
+sudo ansible dev -a "python --version"
+sudo ansible qa -a "python --version"
+
+sudo ansible first -a "python --version"
+
+
+ansible --list-hosts all 
+ansible --list-hosts dev
+
+//not first
+ansible --list-hosts \!first
+
+ansible --list-hosts qa:dev
+
+sudo ansible-playbook playbooks/01-ping.yml
+=========
+
+We are installing Ansible and running it on our local machine
+Control Node -> Controlling other servers
+
+The other servers, These are called
+Managed Nodes
+
+
+--
+dev1                       : ok=5  //have 5 tasks
+dev2                       : ok=5  
+qa1                        : ok=3  //hava 3 tasks
+
+sudo ansible-playbook playbooks/02
+
+multiple messages debug
+https://stackoverflow.com/questions/34188167/ansible-print-message-debug-msg-line1-n-var2-n-line3-with-var3
+
+sudo ansible-playbook playbooks/03-variables.yml
+sudo ansible-playbook playbooks/03-variables.yml -e variable1=CommandLine
+
+sudo ansible qa -m setup
+
+
+sudo ansible-playbook playbooks/06-playbooks.yml --list-tasks
+sudo ansible-playbook playbooks/06-playbooks.yml --list-host
+
+sudo ansible-playbook -l qa playbooks/01-ping.yml
+sudo ansible-playbook -l dev playbooks/01-ping.yml
+
+
+Install Boto3
+https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html
+pip install boto3
+import boto3
