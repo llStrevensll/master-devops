@@ -193,3 +193,22 @@ terraform workspace select default
 terraform workspace list
 
 ----
+============
+Variables
+
+terraform.tfvars
+key_name="default-ec2"
+instance_type="t2.micro"
+
+
+data provider
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami#architecture
+
+list ami in aws
+https://stackoverflow.com/questions/47467593/how-am-i-supposed-to-get-the-owner-id-of-an-aws-market-place-ami
+aws ec2 describe-images --image-ids <ami-id> --region us-east-1
+aws ec2 describe-images --image-ids ami-0b0af3577fe5e3532 --region us-east-1
+
+----
+.terraform.lock.hcl
+https://www.terraform.io/docs/language/dependency-lock.html
