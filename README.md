@@ -15,7 +15,6 @@ More information about devops
     <li><a href="#docker">DOCKER</a></li>
     <li><a href="#git">GIT</a></li>
     <li><a href="#jenkins">JENKINS</a></li>
-    <li><a href="#nexus-jfrog">NEXUS-JFROG</a></li>
     <li>
         <a href="#projects">PROJECTS - programming languages and more</a>
         <ul>
@@ -141,7 +140,7 @@ Project Link: [https://github.com/llStrevensll/azure-devops](https://github.com/
 ### Python
 * **Python**
 
-Project Link: [https://github.com/llStrevensll/PythonBasico](https://github.com/llStrevensll/Python)
+Project Link: [https://github.com/llStrevensll/PythonBasico](https://github.com/llStrevensll/PythonBasico)
 
 
 ### Flutter
