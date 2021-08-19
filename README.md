@@ -156,8 +156,6 @@ Project Link: [https://github.com/llStrevensll/AppMovies---Flutter](https://gith
 
 Project Link: [https://github.com/llStrevensll/BashShell](https://github.com/llStrevensll/BashShell)
 
-### Groovy
-* **Groovy**
 
 **
 
