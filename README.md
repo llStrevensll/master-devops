@@ -25,7 +25,7 @@ More information about devops
             <li><a href="#Python">Python</a></li>
             <li><a href="#Flutter">Flutter</a></li>
             <li><a href="#Bash_Shell">Bash_Shell</a></li>
-            <li><a href="#Groovy">Groovy</a></li>
+            <!--<li><a href="#Groovy">Groovy</a></li>-->
             <li><a href="#Linux_devops">Linux devops</a></li>
          </ul>
     </li>
