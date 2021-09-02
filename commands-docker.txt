@@ -220,3 +220,11 @@ https://docs.docker.com/engine/reference/commandline/exec/#:~:text=The%20docker%
 docker exec -it <mycontainer> bash
 docker exec -it 5c7abd318d97 bash
 
+---
+docker build . -t projectdemo/hello-world-rest-api:dockerfile1
+docker run -d -p 8080:8080 projectdemo/hello-world-rest-api:dockerfile1
+
+docker exec -ti 33e56ff4deec sh -c "ls"
+docker exec -ti 33e56ff4deec sh -c "ls bin"
+
+docker exec -it 33e56ff4deec /bin/sh
