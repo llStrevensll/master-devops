@@ -15,7 +15,6 @@ More information about devops
     <li><a href="#docker">DOCKER</a></li>
     <li><a href="#git">GIT</a></li>
     <li><a href="#jenkins">JENKINS</a></li>
-    <li><a href="#nexus-jfrog">NEXUS-JFROG</a></li>
     <li>
         <a href="#projects">PROJECTS - programming languages and more</a>
         <ul>
@@ -26,7 +25,7 @@ More information about devops
             <li><a href="#Python">Python</a></li>
             <li><a href="#Flutter">Flutter</a></li>
             <li><a href="#Bash_Shell">Bash_Shell</a></li>
-            <li><a href="#Groovy">Groovy</a></li>
+            <!--<li><a href="#Groovy">Groovy</a></li>-->
             <li><a href="#Linux_devops">Linux devops</a></li>
          </ul>
     </li>
@@ -39,6 +38,8 @@ More information about devops
 
 **Repository**
 Project Link: [https://github.com/llStrevensll/AWS](https://github.com/llStrevensll/AWS)
+
+Project Link: [https://github.com/llStrevensll/master-devops](https://github.com/llStrevensll/master-devops)
 
 ## AZURE
 
@@ -141,7 +142,7 @@ Project Link: [https://github.com/llStrevensll/azure-devops](https://github.com/
 ### Python
 * **Python**
 
-Project Link: [https://github.com/llStrevensll/PythonBasico](https://github.com/llStrevensll/Python)
+Project Link: [https://github.com/llStrevensll/PythonBasico](https://github.com/llStrevensll/PythonBasico)
 
 
 ### Flutter
@@ -157,8 +158,6 @@ Project Link: [https://github.com/llStrevensll/AppMovies---Flutter](https://gith
 
 Project Link: [https://github.com/llStrevensll/BashShell](https://github.com/llStrevensll/BashShell)
 
-### Groovy
-* **Groovy**
 
 **
 
