@@ -10,7 +10,7 @@ More information about devops
   <ol>
     <li><a href="#aws">AWS</a></li>
     <li><a href="#azure">AZURE</a></li>
-    <li><a href="#gcp">gcp</a></li>
+    <li><a href="#gcp">GCP</a></li>
     <li><a href="#terraform">TERRAFORM</a></li>
     <li><a href="#kubernetes">KUBERNETES</a></li>
     <li><a href="#docker">DOCKER</a></li>
