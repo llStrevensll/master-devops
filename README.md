@@ -53,7 +53,7 @@ Project Link: [https://github.com/llStrevensll/master-devops](https://github.com
 ## GCP
 
 **Repository**
-Project Link: [https://github.com/llStrevensll/azure-develop](https://github.com/llStrevensll/GCP)
+Project Link: [https://github.com/llStrevensll/GCP](https://github.com/llStrevensll/GCP)
 
 Project Link: [https://github.com/llStrevensll/master-devops](https://github.com/llStrevensll/master-devops)
 
