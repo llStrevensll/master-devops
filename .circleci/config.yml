@@ -12,6 +12,9 @@ parameters:
   workingdir:
     type: string
     default: "~/main"
+  flag:
+    type: boolean
+    default: true
 
 jobs:
   build:
@@ -28,6 +31,7 @@ jobs:
           command: |
             echo "Image tag used was ${IMAGETAG}"
             echo "$(pwd) == << pipeline.parameters.workingdir >>"
+            <<# pipeline.parameters.flag >> echo "flaggg" <</ pipeline.parameters.flag >>
 #  test-node:
 #    # Install node dependencies and run tests
 #    executor: node/default
