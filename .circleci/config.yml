@@ -32,6 +32,7 @@ jobs:
             echo "Image tag used was ${IMAGETAG}"
             echo "$(pwd) == << pipeline.parameters.workingdir >>"
             <<# pipeline.parameters.flag >> echo "flaggg" <</ pipeline.parameters.flag >>
+            <<# pipeline.parameters.image-tag >> echo "stringgg" <</ pipeline.parameters.image-tag >>
 #  test-node:
 #    # Install node dependencies and run tests
 #    executor: node/default
