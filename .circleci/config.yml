@@ -4,88 +4,107 @@ version: 2.1
 orbs:
   node: circleci/node@5
   python: circleci/python@2
+
+parameters:
+  image-tag:
+    type: string
+    default: "current"
+  workingdir:
+    type: string
+    default: "~/main"
+
 jobs:
-  test-node:
-    # Install node dependencies and run tests
-    executor: node/default
-    working_directory: ~/project/hello-world/hello-world-nodejs
-    steps:
-      - checkout:
-          path: ~/project
-      - node/install-packages:
-          cache-path: ~/project/node_modules
-          override-ci-command: npm install
-      - run:
-          name: Print node install help instructions
-          command: |-
-            echo "One cause for node package install failure is if you have private repositories that it can't reach
-            One way to fix this for private npm packages:
-              1. Use the npm CLI's \"login\" command to create a token (usually saved in your user's \"~/.npmrc\" file)
-                For more info, see https://circleci.com/blog/publishing-npm-packages-using-circleci-2-0/#:~:text=set%20the%20%24npm_token%20environment%20variable%20in%20circleci
-              2. Add a NPM_TOKEN to an org context
-                For info on how to use contexts, see https://circleci.com/docs/contexts/
-              3. Add a .circleci/config.yml to your repository or use this config.yml as a starting template
-              4. Configure the jobs to use the context that includes NPM_TOKEN
-              5. Add a step to inject your NPM_TOKEN environment variable into npm before \"install-packages\"
-                For an example, see https://circleci.com/blog/publishing-npm-packages-using-circleci-2-0/#:~:text=the%20deploy%20job%20has%20several%20steps%20that%20run%20to%20authenticate%20with%20and%20publish%20to"
-          when: on_fail
-      - run:
-          name: Run tests
-          command: echo \"No test specified in package.json\"
-  test-java:
+  build:
     docker:
-      - image: cimg/openjdk:17.0
-    working_directory: ~/project/kubernetes-project/01-hello-world-rest-api
+      - image: cimg/node:<< pipeline.parameters.image-tag >>
+    environment:
+      IMAGETAG: << pipeline.parameters.image-tag >>
+    working_directory: << pipeline.parameters.workingdir >>
     steps:
-      - checkout:
-          path: ~/project
-      - run:
-          name: Calculate cache key
-          command: |-
-            find . -name 'pom.xml' -o -name 'gradlew*' -o -name '*.gradle*' | \
-                    sort | xargs cat > /tmp/CIRCLECI_CACHE_KEY
-      - restore_cache:
-          key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
-      - run:
-          command: mvn verify
-      - store_test_results:
-          path: target/surefire-reports
-      - save_cache:
-          key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
-          paths:
-            - ~/.m2/repository
-  test-python:
-    # Install dependencies and run tests
-    docker:
-      - image: cimg/python:3.8-node
-    working_directory: ~/project/hello-world/hello-world-python
-    steps:
-      - checkout:
-          path: ~/project
-      - python/install-packages
-      - run:
-          name: Run tests
-          command: pytest --junitxml=junit.xml || ((($? == 5)) && echo 'Did not find any tests to run.')
-      - store_test_results:
-          path: junit.xml
-  deploy:
-    # This is an example deploy job, not actually used by the workflow
-    docker:
-      - image: cimg/base:stable
-    steps:
-      # Replace this with steps to deploy to users
-      - run:
-          name: deploy
-          command: '#e.g. ./deploy.sh'
-      - run:
-          name: found jenkins config
-          command: ':'
-workflows:
-  build-and-test:
-    jobs:
-      - test-node
-      - test-java
-      - test-python
+      - run: echo "Image tag used was ${IMAGETAG}"
+      - run: echo "$(pwd) == << pipeline.parameters.workingdir >>"
+#  test-node:
+#    # Install node dependencies and run tests
+#    executor: node/default
+#    working_directory: ~/project/hello-world/hello-world-nodejs
+#    steps:
+#      - checkout:
+#          path: ~/project
+#      - node/install-packages:
+#          cache-path: ~/project/node_modules
+#          override-ci-command: npm install
+#      - run:
+#          name: Print node install help instructions
+#          command: |-
+#            echo "One cause for node package install failure is if you have private repositories that it can't reach
+#            One way to fix this for private npm packages:
+#              1. Use the npm CLI's \"login\" command to create a token (usually saved in your user's \"~/.npmrc\" file)
+#                For more info, see https://circleci.com/blog/publishing-npm-packages-using-circleci-2-0/#:~:text=set%20the%20%24npm_token%20environment%20variable%20in%20circleci
+#              2. Add a NPM_TOKEN to an org context
+#                For info on how to use contexts, see https://circleci.com/docs/contexts/
+#              3. Add a .circleci/config.yml to your repository or use this config.yml as a starting template
+#              4. Configure the jobs to use the context that includes NPM_TOKEN
+#              5. Add a step to inject your NPM_TOKEN environment variable into npm before \"install-packages\"
+#                For an example, see https://circleci.com/blog/publishing-npm-packages-using-circleci-2-0/#:~:text=the%20deploy%20job%20has%20several%20steps%20that%20run%20to%20authenticate%20with%20and%20publish%20to"
+#          when: on_fail
+#      - run:
+#          name: Run tests
+#          command: echo \"No test specified in package.json\"
+#  test-java:
+#    docker:
+#      - image: cimg/openjdk:17.0
+#    working_directory: ~/project/kubernetes-project/01-hello-world-rest-api
+#    steps:
+#      - checkout:
+#          path: ~/project
+#      - run:
+#          name: Calculate cache key
+#          command: |-
+#            find . -name 'pom.xml' -o -name 'gradlew*' -o -name '*.gradle*' | \
+#                    sort | xargs cat > /tmp/CIRCLECI_CACHE_KEY
+#      - restore_cache:
+#          key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
+#      - run:
+#          command: mvn verify
+#      - store_test_results:
+#          path: target/surefire-reports
+#      - save_cache:
+#          key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
+#          paths:
+#            - ~/.m2/repository
+#  test-python:
+#    # Install dependencies and run tests
+#    docker:
+#      - image: cimg/python:3.8-node
+#    working_directory: ~/project/hello-world/hello-world-python
+#    steps:
+#      - checkout:
+#          path: ~/project
+#      - python/install-packages
+#      - run:
+#          name: Run tests
+#          command: pytest --junitxml=junit.xml || ((($? == 5)) && echo 'Did not find any tests to run.')
+#      - store_test_results:
+#          path: junit.xml
+#  deploy:
+#    # This is an example deploy job, not actually used by the workflow
+#    docker:
+#      - image: cimg/base:stable
+#    steps:
+#      # Replace this with steps to deploy to users
+#      - run:
+#          name: deploy
+#          command: '#e.g. ./deploy.sh'
+#      - run:
+#          name: found jenkins config
+#          command: ':'
+
+#workflows:
+#  build-and-test:
+#    jobs:
+#      - test-node
+#      - test-java
+#      - test-python
     # - deploy:
     #     requires:
     #       - test-node
