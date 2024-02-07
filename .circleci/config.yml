@@ -8,6 +8,9 @@ orbs:
 parameters:
   image-tag:
     type: string
+    default: "current"
+  image-tag1:
+    type: string
     default: ""
   workingdir:
     type: string
@@ -32,7 +35,7 @@ jobs:
             echo "Image tag used was ${IMAGETAG}"
             echo "$(pwd) == << pipeline.parameters.workingdir >>"
             <<# pipeline.parameters.flag >> echo "flaggg" <</ pipeline.parameters.flag >>
-            <<# pipeline.parameters.image-tag >> echo "stringgg" <</ pipeline.parameters.image-tag >>
+            <<# pipeline.parameters.image-tag1 >> echo "stringgg" <</ pipeline.parameters.image-tag1 >>
 #  test-node:
 #    # Install node dependencies and run tests
 #    executor: node/default
