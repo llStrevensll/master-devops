@@ -20,11 +20,12 @@ jobs:
     environment:
       IMAGETAG: << pipeline.parameters.image-tag >>
     working_directory: << pipeline.parameters.workingdir >>
-    steps:
-      command: |
-        echo "Image tag used was ${IMAGETAG}"
-        echo "$(pwd) == << pipeline.parameters.workingdir >>"
-      
+    #steps:
+    #  - run: echo "Image tag used was ${IMAGETAG}"
+    #  - run: echo "$(pwd) == << pipeline.parameters.workingdir >>"
+    command: |
+      echo "Image tag used was ${IMAGETAG}"
+      echo "$(pwd) == << pipeline.parameters.workingdir >>"
 #  test-node:
 #    # Install node dependencies and run tests
 #    executor: node/default
