@@ -11,7 +11,7 @@ parameters:
     default: "current"
   image-tag1:
     type: string
-    default: ""
+    default: "test"
   workingdir:
     type: string
     default: "~/main"
