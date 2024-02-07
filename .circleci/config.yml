@@ -8,7 +8,7 @@ orbs:
 parameters:
   image-tag:
     type: string
-    default: "current"
+    default: ""
   workingdir:
     type: string
     default: "~/main"
